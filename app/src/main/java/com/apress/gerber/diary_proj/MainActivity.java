@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
                 builder.setItems(sort, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
+
                         Toast.makeText(getApplicationContext(), sort[i], Toast.LENGTH_SHORT).show();
                     }
                 });
