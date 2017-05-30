@@ -23,8 +23,10 @@ public class NormalDiaryActivity extends AppCompatActivity {
             public void onClick(View v){
                 String txt = diaryEditText.getText().toString();
                 Intent intent = new Intent(getApplicationContext(), NormalDiaryViewActivity.class);
-                intent.putExtra("diaryEditText", txt);
+                intent.putExtra("normalDiaryView", txt);
                 startActivity(intent);
+
+
 
             }
         });

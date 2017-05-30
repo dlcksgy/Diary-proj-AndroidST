@@ -1,6 +1,7 @@
 package com.apress.gerber.diary_proj;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int i) {
 
                         Toast.makeText(getApplicationContext(), sort[i], Toast.LENGTH_SHORT).show();
+                        if(i == 0){
+                            Intent intent = new Intent(getApplicationContext(), NormalDiaryActivity.class);
+                            startActivity(intent);
+                        }
                     }
                 });
                 AlertDialog alertDialog = builder.create();
