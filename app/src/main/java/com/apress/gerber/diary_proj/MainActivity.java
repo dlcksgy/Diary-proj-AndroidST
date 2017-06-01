@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int i) {
 
                         Toast.makeText(getApplicationContext(), sort[i], Toast.LENGTH_SHORT).show();
-                        if(i == 0){
-                            Intent intent = new Intent(getApplicationContext(), NormalDiaryActivity.class);
+                        if(i == 0){  //일기를 선택했을 때 일기장 뷰를 가져온다.
+                            Intent intent = new Intent(getApplicationContext(), NormalDiaryViewActivity.class);
                             startActivity(intent);
                         }
                     }
@@ -65,6 +65,15 @@ public class MainActivity extends AppCompatActivity {
                 alert.setTitle("종료알림창");
                 alert.show();
 
+            }
+        });
+
+        Button calendarButton = (Button) findViewById(R.id.calendarButton);
+        calendarButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(),CalendarActivity.class);
+                startActivity(intent);
             }
         });
 
