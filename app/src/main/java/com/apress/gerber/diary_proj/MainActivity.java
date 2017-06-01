@@ -12,32 +12,52 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private String[] sort = {"일기", "그림일기", "교환일기", "사진일기"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button listButton = (Button) findViewById(R.id.listButton);
-        listButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("메뉴");
-                builder.setItems(sort, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
 
-                        Toast.makeText(getApplicationContext(), sort[i], Toast.LENGTH_SHORT).show();
-                        if(i == 0){  //일기를 선택했을 때 일기장 뷰를 가져온다.
-                            Intent intent = new Intent(getApplicationContext(), NormalDiaryViewActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-                });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+        Button normalDiaryButton = (Button) findViewById(R.id.normalDiaryButton);
+        normalDiaryButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(),NormalDiaryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button pictureDiaryButton = (Button) findViewById(R.id.pictureDiaryButton);
+        pictureDiaryButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                //사진일기 레이어 호출
+
+            }
+        });
+
+        Button shareDiaryButton = (Button) findViewById(R.id.shareDiaryButton);
+        shareDiaryButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                //교환일기 레이어 호출
+
+            }
+        });
+
+
+
+
+        Button calendarButton = (Button) findViewById(R.id.calendarButton);
+        calendarButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent intent = new Intent(getApplicationContext(),CalendarActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -68,19 +88,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button calendarButton = (Button) findViewById(R.id.calendarButton);
-        calendarButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intent = new Intent(getApplicationContext(),CalendarActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 
     }
-
-
 
 }

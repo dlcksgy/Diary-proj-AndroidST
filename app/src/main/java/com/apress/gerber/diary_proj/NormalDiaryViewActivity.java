@@ -25,11 +25,7 @@ public class NormalDiaryViewActivity extends AppCompatActivity{
 
 
         try {                                                               //저장되어있던 파일에서 일기 읽어옴
-            FileInputStream fis = openFileInput("text.text");
-            byte[] buffer = new byte[fis.available()];
-            fis.read(buffer);
-            String str = new String(buffer);
-            normalDiaryView.setText(str);
+            normalDiaryView.setText(Diary.loadDiary("text.txt"));
         }catch(Exception ex){
             Toast.makeText(getApplicationContext(),ex.toString(),Toast.LENGTH_SHORT);
         }
